@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101820">
+    <title>Member Store | FA.GYM</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #101820;
+            color: #f5f7f8;
+            --accent: #00ff65;
+            --muted: #aab4bd;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 28px;
+            background: radial-gradient(ellipse at 15% 0, rgba(0,255,101,.09), transparent 34%), #101820;
+        }
+
+        main { max-width: 1400px; margin: 0 auto; }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 42px;
+        }
+
+        .logo { color: #fff; font-size: 1.8rem; font-weight: 900; text-decoration: none; }
+        .logo span, .eyebrow { color: var(--accent); }
+        .back-link { color: var(--muted); text-decoration: none; }
+        .back-link:hover { color: var(--accent); }
+        .system-link {
+            display: inline-flex;
+            align-items: center;
+            min-height: 42px;
+            padding: 10px 14px;
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            color: var(--accent);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .system-link:hover { background: rgba(0,255,101,.1); }
+        .eyebrow { font-size: .75rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+        h1 { margin: 10px 0; font-size: clamp(2rem, 5vw, 3.5rem); }
+        .intro { margin: 0 0 24px; color: var(--muted); line-height: 1.6; }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .store-card {
+            padding: clamp(18px, 3vw, 32px);
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 16px;
+            background: #17232c;
+            box-shadow: 0 18px 50px rgba(0,0,0,.25);
+        }
+
+        .toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .total { color: var(--muted); }
+        .total strong { color: var(--accent); font-size: 1.4rem; }
+        input {
+            width: min(100%, 340px);
+            min-height: 46px;
+            padding: 10px 14px;
+            border: 1px solid #3b4954;
+            border-radius: 8px;
+            background: #101820;
+            color: #fff;
+            font: inherit;
+        }
+
+        input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        .table-wrap { overflow-x: auto; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; }
+        table { width: 100%; border-collapse: collapse; min-width: 1180px; text-align: left; }
+        th, td { padding: 14px 12px; border-bottom: 1px solid rgba(255,255,255,.08); vertical-align: top; }
+        th { background: #101820; color: var(--accent); font-size: .78rem; letter-spacing: .04em; white-space: nowrap; }
+        td { color: #e1e7ea; font-size: .88rem; line-height: 1.5; overflow-wrap: anywhere; }
+        tbody tr:last-child td { border-bottom: 0; }
+        #member-status { min-height: 22px; margin: 16px 0 0; color: var(--muted); }
+        .notice { margin: 18px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.6; }
+        .member-photo {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #26343e;
+        }
+        .member-action {
+            min-height: 38px;
+            padding: 8px 12px;
+            border: 1px solid var(--accent);
+            border-radius: 7px;
+            background: transparent;
+            color: var(--accent);
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+        }
+        .member-action:hover { background: rgba(0,255,101,.1); }
+        .member-action:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        .member-dialog {
+            width: min(560px, calc(100% - 28px));
+            max-height: calc(100% - 32px);
+            margin: auto;
+            padding: 28px;
+            border: 1px solid rgba(255,255,255,.16);
+            border-radius: 14px;
+            background: #17232c;
+            color: #f5f7f8;
+        }
+        .member-dialog::backdrop { background: rgba(0,0,0,.72); }
+        .member-dialog h2 { margin: 0 0 20px; }
+        .edit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        .edit-field { display: grid; gap: 7px; color: var(--muted); font-size: .9rem; }
+        .edit-field--wide { grid-column: 1 / -1; }
+        .edit-field input, .edit-field select, .edit-field textarea {
+            width: 100%;
+            min-height: 42px;
+            padding: 10px;
+            border: 1px solid #3b4954;
+            border-radius: 7px;
+            background: #101820;
+            color: #fff;
+            font: inherit;
+        }
+        .edit-field textarea { min-height: 86px; resize: vertical; }
+        .photo-preview { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; background: #26343e; }
+        .photo-clear { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; color: var(--muted); }
+        .dialog-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 22px; }
+        .dialog-actions button {
+            min-height: 42px;
+            padding: 9px 16px;
+            border: 1px solid #53616b;
+            border-radius: 7px;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+        }
+        .dialog-actions button[type="submit"] { border-color: var(--accent); background: var(--accent); color: #101820; }
+        #edit-status { min-height: 20px; margin: 12px 0 0; color: #ffb4a8; }
+
+        .payment-section {
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,.1);
+        }
+
+        .payment-section h2 { margin: 0 0 8px; font-size: 1.2rem; }
+        .payment-section > p { margin: 0 0 16px; color: var(--muted); line-height: 1.5; }
+        .payment-options { display: flex; flex-wrap: wrap; gap: 10px; }
+        .payment-option {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 44px;
+            padding: 10px 16px;
+            border: 1px solid #3b4954;
+            border-radius: 8px;
+            background: #101820;
+            color: #fff;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+        }
+        .payment-logo {
+            display: inline-flex;
+            flex: 0 0 28px;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            font-size: .9rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .payment-logo--phonepe {
+            border-radius: 50%;
+            background: #5f259f;
+            color: #fff;
+            font-size: 1.15rem;
+        }
+        .payment-logo--gpay {
+            color: #4285f4;
+            font-size: 1.35rem;
+            text-shadow: 1px 0 #34a853, 2px 0 #fbbc05, 3px 0 #ea4335;
+        }
+        .payment-logo--paytm {
+            color: #00baf2;
+            font-size: .7rem;
+            letter-spacing: -.06em;
+        }
+        .payment-logo--bhim {
+            width: 30px;
+            height: 24px;
+            flex-basis: 30px;
+            border-radius: 5px;
+            background: #6739b7;
+            color: #fff;
+            font-size: .62rem;
+        }
+        .payment-option:hover,
+        .payment-option[aria-pressed="true"] {
+            border-color: var(--accent);
+            background: rgba(0,255,101,.1);
+            color: var(--accent);
+        }
+        .payment-option:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        #payment-status { min-height: 22px; margin: 14px 0 0; color: var(--accent); }
+
+        @media (max-width: 640px) {
+            body { padding: 20px 14px; }
+            .topbar, .toolbar { align-items: stretch; flex-direction: column; }
+            input { width: 100%; }
+            .payment-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .member-dialog { padding: 20px; }
+            .edit-grid { grid-template-columns: 1fr; }
+            .edit-field--wide { grid-column: auto; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header class="topbar">
+            <a class="logo" href="index.html" aria-label="FA.GYM home">F<span>A</span>.</a>
+            <a class="system-link" href="index.html">Open Gym Management System</a>
+        </header>
+
+        <section aria-labelledby="page-heading">
+            <p class="eyebrow">Membership management</p>
+            <h1 id="page-heading">Member Store</h1>
+            <p class="intro">MySQL registrations and registrations saved locally while MySQL is unavailable appear here.</p>
+        </section>
+
+        <section class="store-card" aria-label="Registered members">
+            <div class="toolbar">
+                <p class="total">Total registrations: <strong id="member-count">0</strong></p>
+                <label>
+                    <span class="sr-only">Search members</span>
+                    <input id="member-search" type="search" placeholder="Search name, phone, email, or plan">
+                </label>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <caption class="sr-only">Membership registrations saved in this browser</caption>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Full name</th>
+                            <th>Photo</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Plan</th>
+                            <th>Start date</th>
+                            <th>Fitness goal</th>
+                            <th>Registered at</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="member-list"></tbody>
+                </table>
+            </div>
+            <p id="member-status" role="status" aria-live="polite"></p>
+            <dialog id="member-edit-dialog" class="member-dialog" aria-labelledby="edit-heading">
+                <form id="member-edit-form">
+                    <h2 id="edit-heading">Edit member</h2>
+                    <div class="edit-grid">
+                        <label class="edit-field" for="edit-full-name">Full name
+                            <input id="edit-full-name" name="fullName" type="text" required>
+                        </label>
+                        <label class="edit-field" for="edit-phone">Phone
+                            <input id="edit-phone" name="phone" type="tel" required>
+                        </label>
+                        <label class="edit-field edit-field--wide" for="edit-email">Email
+                            <input id="edit-email" name="email" type="email" required>
+                        </label>
+                        <label class="edit-field" for="edit-plan">Membership plan
+                            <select id="edit-plan" name="plan" required>
+                                <option value="monthly">Monthly</option>
+                                <option value="quarterly">3 months</option>
+                                <option value="half-yearly">6 months</option>
+                                <option value="yearly">12 months</option>
+                            </select>
+                        </label>
+                        <label class="edit-field" for="edit-start-date">Start date
+                            <input id="edit-start-date" name="startDate" type="date" required>
+                        </label>
+                        <label class="edit-field edit-field--wide" for="edit-goal">Fitness goal
+                            <textarea id="edit-goal" name="goal"></textarea>
+                        </label>
+                        <div class="edit-field edit-field--wide">
+                            <label for="edit-photo">Member photo</label>
+                            <img id="edit-photo-preview" class="photo-preview" alt="Current member photo preview" hidden>
+                            <input id="edit-photo" name="photo" type="file" accept="image/*">
+                            <label class="photo-clear"><input id="edit-photo-clear" type="checkbox"> Remove current photo</label>
+                        </div>
+                    </div>
+                    <p id="edit-status" role="status" aria-live="polite"></p>
+                    <div class="dialog-actions">
+                        <button id="edit-cancel" type="button">Cancel</button>
+                        <button type="submit">Save changes</button>
+                    </div>
+                </form>
+            </dialog>
+            <p class="notice" id="store-storage-notice">MySQL is the primary store. If it is unavailable, registrations are saved in the private, Git-ignored .data/members.json file on this computer.</p>
+
+            <section class="payment-section" aria-labelledby="payment-heading">
+                <h2 id="payment-heading">Payment options</h2>
+                <p>Choose your preferred UPI app. Payment is not processed in this demo.</p>
+                <div class="payment-options" role="group" aria-label="Choose a payment method">
+                    <button class="payment-option" type="button" data-payment-method="PhonePe" aria-pressed="false"><span class="payment-logo payment-logo--phonepe" aria-hidden="true">P</span>PhonePe</button>
+                    <button class="payment-option" type="button" data-payment-method="Google Pay" aria-pressed="false"><span class="payment-logo payment-logo--gpay" aria-hidden="true">G</span>G-Pay</button>
+                    <button class="payment-option" type="button" data-payment-method="Paytm" aria-pressed="false"><span class="payment-logo payment-logo--paytm" aria-hidden="true">paytm</span>Paytm</button>
+                    <button class="payment-option" type="button" data-payment-method="BHIM UPI" aria-pressed="false"><span class="payment-logo payment-logo--bhim" aria-hidden="true">BHIM</span>BHIM UPI</button>
+                </div>
+                <p id="payment-status" role="status" aria-live="polite"></p>
+            </section>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
