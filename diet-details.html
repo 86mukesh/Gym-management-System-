@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#131b2b">
+    <title>Gym Diet Guide | FA.GYM</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #131b2b;
+            color: #fff;
+            --accent: #00ff34;
+            --muted: #bac3cc;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 30px 20px 60px;
+            background:
+                radial-gradient(ellipse at 85% 10%, rgba(0, 255, 52, 0.09), transparent 35%),
+                #131b2b;
+        }
+
+        main {
+            width: min(100%, 1000px);
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 8px 0 24px;
+            color: var(--accent);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: #fff;
+        }
+
+        .guide-card {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            background: #1b2734;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .guide-image {
+            min-height: 100%;
+            background: #202a3b;
+        }
+
+        .guide-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 410px;
+            object-fit: cover;
+        }
+
+        .guide-content {
+            padding: clamp(24px, 5vw, 48px);
+        }
+
+        .guide-tag {
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+        }
+
+        h1 {
+            margin: 12px 0;
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.08;
+        }
+
+        .price {
+            display: inline-block;
+            margin: 4px 0 18px;
+            padding: 9px 12px;
+            border: 1px solid rgba(0, 255, 52, 0.35);
+            border-radius: 8px;
+            background: rgba(0, 255, 52, 0.08);
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .price span {
+            color: var(--muted);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .description,
+        .guide-note {
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        h2 {
+            margin: 26px 0 12px;
+            font-size: 1.2rem;
+        }
+
+        ul {
+            display: grid;
+            gap: 10px;
+            margin: 0;
+            padding-left: 20px;
+            color: #e2e8ec;
+            line-height: 1.55;
+        }
+
+        li::marker {
+            color: var(--accent);
+        }
+
+        .guide-note {
+            margin-top: 28px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 0.86rem;
+        }
+
+        .all-diets {
+            margin-top: 52px;
+        }
+
+        .all-diets h2 {
+            margin: 0;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+        }
+
+        .section-intro {
+            margin: 10px 0 22px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .diet-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .diet-gallery-card {
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            background: #1b2734;
+            color: inherit;
+            text-decoration: none;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .diet-gallery-card:hover,
+        .diet-gallery-card:focus-visible {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            outline: none;
+        }
+
+        .diet-gallery-card img {
+            display: block;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .diet-gallery-copy {
+            padding: 14px;
+        }
+
+        .diet-gallery-copy span {
+            color: var(--accent);
+            font-size: 0.67rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+        }
+
+        .diet-gallery-copy h3 {
+            margin: 7px 0;
+            font-size: 1rem;
+        }
+
+        .diet-gallery-copy p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .error-message {
+            padding: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            background: #1b2734;
+        }
+
+        .error-message h1 {
+            font-size: 2rem;
+        }
+
+        .error-message p {
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 850px) {
+            .diet-gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 700px) {
+            .guide-card {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-image img {
+                height: 240px;
+                min-height: 0;
+            }
+
+            .guide-content {
+                padding: 26px 22px;
+            }
+
+            .all-diets {
+                margin-top: 38px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            body {
+                padding-right: 14px;
+                padding-left: 14px;
+            }
+
+            .diet-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .diet-gallery-card img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back-link" href="index.html#diet">&larr; Back to all diet options</a>
+        <section id="diet-guide" class="guide-card" aria-labelledby="guide-title" hidden>
+            <div class="guide-image">
+                <img id="guide-image" alt="">
+            </div>
+            <div class="guide-content">
+                <p id="guide-tag" class="guide-tag"></p>
+                <h1 id="guide-title"></h1>
+                <p id="guide-price" class="price"></p>
+                <p id="guide-description" class="description"></p>
+                <h2>Meal ideas</h2>
+                <ul id="meal-ideas"></ul>
+                <h2>Helpful tips</h2>
+                <ul id="diet-tips"></ul>
+                <p id="guide-note" class="guide-note"></p>
+            </div>
+        </section>
+        <section id="all-diets" class="all-diets" aria-labelledby="all-diets-heading" hidden>
+            <h2 id="all-diets-heading">Explore all diet types</h2>
+            <p class="section-intro">Choose a photo to open meal ideas and tips for that option.</p>
+            <div id="diet-gallery" class="diet-gallery"></div>
+        </section>
+        <section id="diet-error" class="error-message" role="alert" hidden>
+            <h1>Diet option not found</h1>
+            <p>Please return to the diet page and choose one of the available options.</p>
+        </section>
+    </main>
+
+    <script>
+        const dietGuides = {
+            "muscle-building": {
+                tag: "STRENGTH",
+                title: "Muscle-building meal ideas",
+                price: "PKR 450-700",
+                image: "dite7.jpg",
+                imageAlt: "Chicken and balanced foods for a muscle-building meal",
+                description: "Support strength training with regular meals that include a protein source, energy-giving carbohydrates, and fruit or vegetables. Total food needs depend on your body and activity.",
+                meals: [
+                    "Breakfast: eggs with roti or oats, plus fruit.",
+                    "Lunch: chicken, rice, and vegetables; swap chicken for beans or tofu if preferred.",
+                    "Snack: yogurt with banana, or roasted chickpeas.",
+                    "Dinner: lentils or fish with potatoes or roti and vegetables."
+                ],
+                tips: [
+                    "Include protein foods in meals across the day.",
+                    "Choose a gradual, consistent approach instead of trying to gain weight quickly."
+                ]
+            },
+            "fat-loss": {
+                tag: "LEAN & ACTIVE",
+                title: "Fat-loss meal ideas",
+                price: "PKR 350-550",
+                image: "dite5.jpg",
+                imageAlt: "Nutritious foods for a balanced fat-loss meal",
+                description: "Build satisfying meals around vegetables, protein foods, and fibre-rich carbohydrates. Sustainable habits are more useful than skipping meals or crash diets.",
+                meals: [
+                    "Breakfast: eggs or yogurt with fruit and oats.",
+                    "Lunch: beans, chicken, or tofu with vegetables and a moderate serving of rice.",
+                    "Snack: fruit, yogurt, or roasted chickpeas.",
+                    "Dinner: lentils or lean protein with vegetables and roti."
+                ],
+                tips: [
+                    "Eat slowly and choose portions that leave you comfortably satisfied.",
+                    "Keep water handy and pair nutrition changes with regular activity and sleep."
+                ]
+            },
+            balanced: {
+                tag: "EVERYDAY",
+                title: "Balanced eating ideas",
+                price: "PKR 300-500",
+                image: "dite6.jpg",
+                imageAlt: "A colorful variety of whole foods for balanced nutrition",
+                description: "A balanced approach can include foods you enjoy. Mix protein foods, grains or starchy foods, vegetables, fruit, and nourishing fats over the day.",
+                meals: [
+                    "Breakfast: oats with milk or a fortified alternative, fruit, and nuts.",
+                    "Lunch: rice or roti with beans, eggs, chicken, or tofu and vegetables.",
+                    "Snack: fruit with yogurt or a handful of nuts.",
+                    "Dinner: potatoes or grains with a protein food and salad."
+                ],
+                tips: [
+                    "Aim for variety rather than trying to make every meal perfect.",
+                    "Choose foods and portions that fit your routine, budget, and appetite."
+                ]
+            },
+            vegetarian: {
+                tag: "NO MEAT",
+                title: "Vegetarian meal ideas",
+                price: "PKR 250-450",
+                image: "dite2.jpg",
+                imageAlt: "Plant foods for a vegetarian gym meal",
+                description: "Vegetarian gym meals can provide useful protein and energy with a mix of dairy, eggs, legumes, soy foods, grains, nuts, and seeds.",
+                meals: [
+                    "Breakfast: eggs or yogurt with oats, fruit, or whole-grain toast.",
+                    "Lunch: dal, rice, vegetables, and yogurt or paneer.",
+                    "Snack: milk, yogurt, fruit, or roasted chickpeas.",
+                    "Dinner: tofu or beans with roti and vegetables."
+                ],
+                tips: [
+                    "Include a protein-rich vegetarian food in each main meal.",
+                    "Use a variety of legumes, dairy or alternatives, eggs, and soy foods."
+                ]
+            },
+            vegan: {
+                tag: "PLANT-BASED",
+                title: "Vegan meal ideas",
+                price: "PKR 250-450",
+                image: "dite0.jpg",
+                imageAlt: "Fruit, nuts, and plant-based foods for a vegan diet",
+                description: "A varied vegan pattern can include legumes, tofu or other soy foods, grains, vegetables, fruit, nuts, and seeds. Choose fortified alternatives where available.",
+                meals: [
+                    "Breakfast: oats made with fortified soy drink, fruit, and seeds.",
+                    "Lunch: chickpea curry with rice and vegetables.",
+                    "Snack: fruit with nuts, or hummus with vegetables.",
+                    "Dinner: tofu or lentils with roti, potatoes, and vegetables."
+                ],
+                tips: [
+                    "Vary your plant protein sources through the week.",
+                    "Ask a qualified professional about nutrients such as vitamin B12 and individual supplementation needs."
+                ]
+            },
+            "high-protein": {
+                tag: "PROTEIN",
+                title: "High-protein food ideas",
+                price: "PKR 450-750",
+                image: "dite3.jpg",
+                imageAlt: "Eggs and other protein-rich foods for a gym meal",
+                description: "Protein can come from animal or plant foods. Spread sources across meals and choose amounts that suit your needs and health.",
+                meals: [
+                    "Breakfast: eggs, yogurt, or tofu with oats, roti, or toast.",
+                    "Lunch: chicken, fish, paneer, tofu, beans, or lentils with rice and vegetables.",
+                    "Snack: yogurt, milk, soy drink, or roasted chickpeas.",
+                    "Dinner: a protein food with vegetables and a grain or potato."
+                ],
+                tips: [
+                    "Regular foods can provide protein; supplements are not required for everyone.",
+                    "Check with a healthcare professional before making major diet changes if you have a medical condition."
+                ]
+            },
+            "training-fuel": {
+                tag: "TRAINING FUEL",
+                title: "Before and after training",
+                price: "PKR 200-400",
+                image: "dite1.jpg",
+                imageAlt: "A nourishing meal to enjoy around a workout",
+                description: "Meal timing can be flexible. Choose familiar foods that feel comfortable before exercise and have a regular balanced meal afterwards.",
+                meals: [
+                    "Before: banana with yogurt, or toast with eggs, if you want a snack.",
+                    "After: rice with chicken, tofu, eggs, beans, or lentils and vegetables.",
+                    "For an early workout: eat a normal breakfast afterwards if that suits you.",
+                    "For a later workout: a usual lunch or dinner can work as your recovery meal."
+                ],
+                tips: [
+                    "There is no single perfect workout meal; comfort and routine matter.",
+                    "Drink water regularly and adjust for heat, duration, and how much you sweat."
+                ]
+            },
+            recovery: {
+                tag: "RECOVERY",
+                title: "Hydration and recovery",
+                price: "PKR 250-450",
+                image: "dite4.jpg",
+                imageAlt: "Wholesome foods and fluids to support everyday recovery",
+                description: "Recovery is supported by enough overall food, regular fluids, rest, and sleep. Water is suitable for most everyday workouts.",
+                meals: [
+                    "After training: a normal meal with a protein food and carbohydrates.",
+                    "Snack: fruit with yogurt, milk, or a fortified alternative.",
+                    "Meals: include vegetables or fruit and a protein source during the day.",
+                    "Fluids: drink regularly and have water available during exercise."
+                ],
+                tips: [
+                    "Needs vary with temperature, workout duration, and individual health.",
+                    "Seek professional advice if you have a condition that affects food or fluid needs."
+                ]
+            }
+        };
+
+        const selectedPlan = new URLSearchParams(window.location.search).get("plan");
+        const guide = dietGuides[selectedPlan];
+        const guideSection = document.querySelector("#diet-guide");
+        const allDietsSection = document.querySelector("#all-diets");
+        const errorSection = document.querySelector("#diet-error");
+
+        if (!guide) {
+            errorSection.hidden = false;
+        } else {
+            document.title = guide.title + " | FA.GYM";
+            document.querySelector("#guide-tag").textContent = guide.tag;
+            document.querySelector("#guide-title").textContent = guide.title;
+            const priceLabel = document.querySelector("#guide-price");
+            priceLabel.textContent = guide.price + " ";
+            const priceUnit = document.createElement("span");
+            priceUnit.textContent = "/ meal (approx.)";
+            priceLabel.append(priceUnit);
+            document.querySelector("#guide-description").textContent = guide.description;
+            document.querySelector("#guide-image").src = guide.image;
+            document.querySelector("#guide-image").alt = guide.imageAlt;
+
+            const mealList = document.querySelector("#meal-ideas");
+            guide.meals.forEach((meal) => {
+                const item = document.createElement("li");
+                item.textContent = meal;
+                mealList.append(item);
+            });
+
+            const tipsList = document.querySelector("#diet-tips");
+            guide.tips.forEach((tip) => {
+                const item = document.createElement("li");
+                item.textContent = tip;
+                tipsList.append(item);
+            });
+
+            document.querySelector("#guide-note").textContent =
+                "Price is an estimate per meal in PKR and can vary by city, ingredients, and portion size. These are general examples, not a personalised meal plan. Consult a qualified dietitian or healthcare professional for individual advice, allergies, or medical conditions.";
+            guideSection.hidden = false;
+
+            const gallery = document.querySelector("#diet-gallery");
+            Object.entries(dietGuides).forEach(([plan, diet]) => {
+                const link = document.createElement("a");
+                link.className = "diet-gallery-card";
+                link.href = "diet-details.html?plan=" + encodeURIComponent(plan);
+                link.setAttribute("aria-label", diet.title + ", " + diet.price + " per meal");
+
+                const image = document.createElement("img");
+                image.src = diet.image;
+                image.alt = diet.imageAlt;
+                image.loading = "lazy";
+
+                const copy = document.createElement("div");
+                copy.className = "diet-gallery-copy";
+
+                const tag = document.createElement("span");
+                tag.textContent = diet.tag;
+
+                const title = document.createElement("h3");
+                title.textContent = diet.title;
+
+                const price = document.createElement("p");
+                price.textContent = diet.price + " / meal (approx.)";
+
+                copy.append(tag, title, price);
+                link.append(image, copy);
+                gallery.append(link);
+            });
+
+            allDietsSection.hidden = false;
+        }
+    </script>
+    <script src="scripts.js"></script>
+</body>
+</html>
