@@ -1,0 +1,595 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FA.GYM </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.2/css/all.min.css" integrity="sha512-g0gRzvKX9GBUbjlJZ02n2GLRJVabgLm6b3oypbkF6ne1T2+ZHCucKRd8qt31a3BCGahAlBmXUDS7lu2pYuWB7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    <div class="navbar">
+        <a href="#" class="logo">F<B>A</B>.</a>
+        <div class="toggle"></div>
+        <ol>
+            <li><a href="#home">home</a></li>
+            <li><a href="#about">about</a></li>
+            <li><a href="#workout">workout</a></li>
+            <li><a href="#trainers">trainers</a></li>
+            <li><a href="#diet">diet</a></li>
+            <li><a href="#contact">contact</a></li>
+            <li><a href="registration.html">registration</a></li>
+            <li><a href="member-store.html">member store</a></li>
+        </ol>
+    </div>
+ <!-----------------Home section---------------->
+    <section id="home" class="home view">
+     <div class="highlights">
+        <div class="wrapper">
+            <marquee id="slider" direction="right" scrollamount="14">
+                <h3>feel the power with</h3>
+            </marquee>
+        </div>
+        <!-- <h3>feel the power with</h3> -->
+         
+        <!-- <h1><b>FIT</b>APEX</h1> -->
+        <div class="wrapper">
+            <marquee id="slider" direction="left" scrollamount="14">
+                 <h1><b>FIT</b>APEX</h1>
+            </marquee>
+        </div>
+        <p class="tagline">
+           Train with purpose, build real strength, and turn consistency into confidence. At FA.GYM, every session is designed to help you move better, feel stronger, and live healthier.
+        </p>
+        <a class="join" href="registration.html">join now</a>
+    </div>
+    <div class="banner">    </div>
+    </section>
+    
+    <!-----------------About section--------------->
+    <section id="about" class="about view">
+        <div class="main">
+            <h2><span>A</span>bout Us</h2>
+            <h6>Build strength, confidence, and a healthier lifestyle with us.</h6>
+        </div>
+        <div class="content">
+            <div class="cols">
+                <p><b>F</b>A.GYM is a modern fitness destination designed to help men and women train with purpose, discipline, and confidence. Whether your goal is fat loss, muscle gain, endurance, or simply a stronger lifestyle, we provide a motivating environment backed by guided coaching, structured programs, and a supportive community.
+
+                Our team focuses on helping every member build sustainable habits through expert training, proper form, and personal progress. From beginner-friendly routines to advanced strength sessions, we create a space where you can challenge yourself, stay consistent, and see real results.</p>
+                          <a href="about-more.html" target="_blank" rel="noopener">more</a>
+                </div>
+                <div class="cols">
+                  <div class="box">
+                   <img src="workout4.jpg" alt="">
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-------------------------workout section------------------->
+    <section id="workout" class="workout view">
+        <div class="main">
+            <h2><span>W</span>orkout</h2>
+            <h6>Choose a plan that matches your goals and your pace.</h6>
+        </div>
+        <div class="content workout-shell">
+            <div class="workout-toolbar">
+                <label class="workout-filter" for="workout-price">
+                    <span>Monthly fee</span>
+                    <select id="workout-price" class="workout-select">
+                        <option value="0">All plans</option>
+                        <option value="1500">PKR 1,500</option>
+                        <option value="2000">PKR 2,000</option>
+                        <option value="2500">PKR 2,500</option>
+                        <option value="3000">PKR 3,000</option>
+                        <option value="4000">PKR 4,000</option>
+                        <option value="5000">PKR 5,000</option>
+                    </select>
+                </label>
+            </div>
+            <div class="workout-grid">
+                <article class="workout-card" data-price="1500">
+                    <div class="workout-media">
+                        <img src="solder.jpg" alt="Athlete doing a chest press at the gym">
+                    </div>
+                    <div class="workout-body">
+                        <span class="workout-category">Strength</span>
+                        <h3>Power Builder</h3>
+                        <div class="workout-price">PKR 1,500 <span>/ month</span></div>
+                        <p>Focused strength sessions with progressive overload and guided form coaching.</p>
+                        <a href="registration.html" class="workout-link">Join plan</a>
+                    </div>
+                </article>
+                <article class="workout-card" data-price="2000">
+                    <div class="workout-media">
+                        <img src="arms.jpg" alt="Athlete training arms with dumbbells">
+                    </div>
+                    <div class="workout-body">
+                        <span class="workout-category">Arms</span>
+                        <h3>Muscle Sculpt</h3>
+                        <div class="workout-price">PKR 2,000 <span>/ month</span></div>
+                        <p>Build upper-body control with reps, tempo work, and recovery-focused routines.</p>
+                        <a href="registration.html" class="workout-link">Join plan</a>
+                    </div>
+                </article>
+                <article class="workout-card" data-price="2500">
+                    <div class="workout-media">
+                        <img src="workout5.jpg" alt="Athlete doing leg training with a barbell">
+                    </div>
+                    <div class="workout-body">
+                        <span class="workout-category">Legs</span>
+                        <h3>Leg Drive</h3>
+                        <div class="workout-price">PKR 2,500 <span>/ month</span></div>
+                        <p>Lower-body strength sessions tailored for power, confidence, and long-term progress.</p>
+                        <a href="registration.html" class="workout-link">Join plan</a>
+                    </div>
+                </article>
+                <article class="workout-card" data-price="3000">
+                    <div class="workout-media">
+                        <img src="byeshap.jpg" alt="Athlete performing a full-body workout">
+                    </div>
+                    <div class="workout-body">
+                        <span class="workout-category">Full body</span>
+                        <h3>Elite Circuit</h3>
+                        <div class="workout-price">PKR 3,000 <span>/ month</span></div>
+                        <p>High-energy circuit training built for fat loss, conditioning, and stamina.</p>
+                        <a href="registration.html" class="workout-link">Join plan</a>
+                    </div>
+                </article>
+                <article class="workout-card" data-price="4000">
+                    <div class="workout-media">
+                        <img src="workout1.jpg" alt="A trainer guiding a focused gym session">
+                    </div>
+                    <div class="workout-body">
+                        <span class="workout-category">Performance</span>
+                        <h3>Pro Lean</h3>
+                        <div class="workout-price">PKR 4,000 <span>/ month</span></div>
+                        <p>Balanced programming for strength, mobility, conditioning, and better recovery.</p>
+                        <a href="registration.html" class="workout-link">Join plan</a>
+                    </div>
+                </article>
+                <article class="workout-card" data-price="5000">
+                    <div class="workout-media">
+                        <img src="workout2.jpg" alt="Strong athlete lifting weights in the gym">
+                    </div>
+                    <div class="workout-body">
+                        <span class="workout-category">Athletic</span>
+                        <h3>Peak Output</h3>
+                        <div class="workout-price">PKR 5,000 <span>/ month</span></div>
+                        <p>Performance-heavy training with coach feedback, tracking, and body-composition goals.</p>
+                        <a href="registration.html" class="workout-link">Join plan</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <!-----------------------------Trainer section---------------------->
+    <section id="trainers" class="trainers view">    <div class="main">
+        <h2><span>B</span>est<span>T</span>rainers</h2>
+        <h6>Find a coach for the way you want to train.</h6>
+    </div>
+    <div class="content trainer-grid">
+        <article class="trainer-card">
+            <div class="trainer-photo">
+                <img src="solder.jpg" alt="Athlete doing a dumbbell chest press">
+                <span class="trainer-specialty">CHEST</span>
+            </div>
+            <div class="trainer-info">
+                <p class="trainer-label">STRENGTH COACH</p>
+                <h3>Hamza Khan</h3>
+                <p class="trainer-bio">Chest workouts, pressing technique, and strength foundations.</p>
+                <p class="trainer-price">PKR 1,500 <span>/ session</span></p>
+                <fieldset class="trainer-rating">
+                    <legend>Rate this trainer</legend>
+                    <div class="rating-stars">
+                        <input id="hamza-rating-5" type="radio" name="hamza-rating" value="5"><label for="hamza-rating-5" aria-label="5 stars">★</label>
+                        <input id="hamza-rating-4" type="radio" name="hamza-rating" value="4"><label for="hamza-rating-4" aria-label="4 stars">★</label>
+                        <input id="hamza-rating-3" type="radio" name="hamza-rating" value="3"><label for="hamza-rating-3" aria-label="3 stars">★</label>
+                        <input id="hamza-rating-2" type="radio" name="hamza-rating" value="2"><label for="hamza-rating-2" aria-label="2 stars">★</label>
+                        <input id="hamza-rating-1" type="radio" name="hamza-rating" value="1"><label for="hamza-rating-1" aria-label="1 star">★</label>
+                    </div>
+                    <output class="rating-output" aria-live="polite">Select a rating</output>
+                </fieldset>
+                <a class="trainer-action" href="trainer-enquiry.html?trainer=hamza-khan" target="_blank" rel="noopener">Enquire about coaching <span aria-hidden="true">&rarr;</span></a>
+            </div>
+        </article>
+        <article class="trainer-card">
+            <div class="trainer-photo">
+                <img src="girl.jpg" alt="Woman performing a single-arm dumbbell row">
+                <span class="trainer-specialty">BACK</span>
+            </div>
+            <div class="trainer-info">
+                <p class="trainer-label">PERSONAL TRAINER</p>
+                <h3>Sana Ahmed</h3>
+                <p class="trainer-bio">Back training, posture, and guided cable-machine workouts.</p>
+                <p class="trainer-price">PKR 1,400 <span>/ session</span></p>
+                <fieldset class="trainer-rating">
+                    <legend>Rate this trainer</legend>
+                    <div class="rating-stars">
+                        <input id="sana-rating-5" type="radio" name="sana-rating" value="5"><label for="sana-rating-5" aria-label="5 stars">★</label>
+                        <input id="sana-rating-4" type="radio" name="sana-rating" value="4"><label for="sana-rating-4" aria-label="4 stars">★</label>
+                        <input id="sana-rating-3" type="radio" name="sana-rating" value="3"><label for="sana-rating-3" aria-label="3 stars">★</label>
+                        <input id="sana-rating-2" type="radio" name="sana-rating" value="2"><label for="sana-rating-2" aria-label="2 stars">★</label>
+                        <input id="sana-rating-1" type="radio" name="sana-rating" value="1"><label for="sana-rating-1" aria-label="1 star">★</label>
+                    </div>
+                    <output class="rating-output" aria-live="polite">Select a rating</output>
+                </fieldset>
+                <a class="trainer-action" href="trainer-enquiry.html?trainer=sana-ahmed" target="_blank" rel="noopener">Enquire about coaching <span aria-hidden="true">&rarr;</span></a>
+            </div>
+        </article>
+        <article class="trainer-card">
+            <div class="trainer-photo">
+                <img src="workout5.jpg" alt="Athlete performing a barbell squat">
+                <span class="trainer-specialty">LEGS</span>
+            </div>
+            <div class="trainer-info">
+                <p class="trainer-label">STRENGTH COACH</p>
+                <h3>Bilal Hussain</h3>
+                <p class="trainer-bio">Leg strength, squat form, and lower-body training basics.</p>
+                <p class="trainer-price">PKR 1,600 <span>/ session</span></p>
+                <fieldset class="trainer-rating">
+                    <legend>Rate this trainer</legend>
+                    <div class="rating-stars">
+                        <input id="bilal-rating-5" type="radio" name="bilal-rating" value="5"><label for="bilal-rating-5" aria-label="5 stars">★</label>
+                        <input id="bilal-rating-4" type="radio" name="bilal-rating" value="4"><label for="bilal-rating-4" aria-label="4 stars">★</label>
+                        <input id="bilal-rating-3" type="radio" name="bilal-rating" value="3"><label for="bilal-rating-3" aria-label="3 stars">★</label>
+                        <input id="bilal-rating-2" type="radio" name="bilal-rating" value="2"><label for="bilal-rating-2" aria-label="2 stars">★</label>
+                        <input id="bilal-rating-1" type="radio" name="bilal-rating" value="1"><label for="bilal-rating-1" aria-label="1 star">★</label>
+                    </div>
+                    <output class="rating-output" aria-live="polite">Select a rating</output>
+                </fieldset>
+                <a class="trainer-action" href="trainer-enquiry.html?trainer=bilal-hussain" target="_blank" rel="noopener">Enquire about coaching <span aria-hidden="true">&rarr;</span></a>
+            </div>
+        </article>
+        <article class="trainer-card">
+            <div class="trainer-photo">
+                <img src="WhatsApp Image 2025-06-24 at 11.43.49_4b86e5a9.jpg" alt="Woman training on a treadmill">
+                <span class="trainer-specialty">CARDIO</span>
+            </div>
+            <div class="trainer-info">
+                <p class="trainer-label">FITNESS COACH</p>
+                <h3>Ayesha Malik</h3>
+                <p class="trainer-bio">Cardio plans, endurance sessions, and getting started safely.</p>
+                <p class="trainer-price">PKR 1,200 <span>/ session</span></p>
+                <fieldset class="trainer-rating">
+                    <legend>Rate this trainer</legend>
+                    <div class="rating-stars">
+                        <input id="ayesha-rating-5" type="radio" name="ayesha-rating" value="5"><label for="ayesha-rating-5" aria-label="5 stars">★</label>
+                        <input id="ayesha-rating-4" type="radio" name="ayesha-rating" value="4"><label for="ayesha-rating-4" aria-label="4 stars">★</label>
+                        <input id="ayesha-rating-3" type="radio" name="ayesha-rating" value="3"><label for="ayesha-rating-3" aria-label="3 stars">★</label>
+                        <input id="ayesha-rating-2" type="radio" name="ayesha-rating" value="2"><label for="ayesha-rating-2" aria-label="2 stars">★</label>
+                        <input id="ayesha-rating-1" type="radio" name="ayesha-rating" value="1"><label for="ayesha-rating-1" aria-label="1 star">★</label>
+                    </div>
+                    <output class="rating-output" aria-live="polite">Select a rating</output>
+                </fieldset>
+                <a class="trainer-action" href="trainer-enquiry.html?trainer=ayesha-malik" target="_blank" rel="noopener">Enquire about coaching <span aria-hidden="true">&rarr;</span></a>
+            </div>
+        </article>
+        <article class="trainer-card">
+            <div class="trainer-photo">
+                <img src="arms.jpg" alt="Athlete building arm strength with a dumbbell">
+                <span class="trainer-specialty">ARMS</span>
+            </div>
+            <div class="trainer-info">
+                <p class="trainer-label">PERSONAL TRAINER</p>
+                <h3>Omar Farooq</h3>
+                <p class="trainer-bio">Arm strength, dumbbell technique, and balanced upper-body training.</p>
+                <p class="trainer-price">PKR 1,300 <span>/ session</span></p>
+                <fieldset class="trainer-rating">
+                    <legend>Rate this trainer</legend>
+                    <div class="rating-stars">
+                        <input id="omar-rating-5" type="radio" name="omar-rating" value="5"><label for="omar-rating-5" aria-label="5 stars">★</label>
+                        <input id="omar-rating-4" type="radio" name="omar-rating" value="4"><label for="omar-rating-4" aria-label="4 stars">★</label>
+                        <input id="omar-rating-3" type="radio" name="omar-rating" value="3"><label for="omar-rating-3" aria-label="3 stars">★</label>
+                        <input id="omar-rating-2" type="radio" name="omar-rating" value="2"><label for="omar-rating-2" aria-label="2 stars">★</label>
+                        <input id="omar-rating-1" type="radio" name="omar-rating" value="1"><label for="omar-rating-1" aria-label="1 star">★</label>
+                    </div>
+                    <output class="rating-output" aria-live="polite">Select a rating</output>
+                </fieldset>
+                <a class="trainer-action" href="trainer-enquiry.html?trainer=omar-farooq" target="_blank" rel="noopener">Enquire about coaching <span aria-hidden="true">&rarr;</span></a>
+            </div>
+        </article>
+        <article class="trainer-card">
+            <div class="trainer-photo">
+                <img src="WhatsApp Image 2025-06-24 at 11.42.24_5053dce6.jpg" alt="Woman athlete at the gym">
+                <span class="trainer-specialty">SHOULDERS</span>
+            </div>
+            <div class="trainer-info">
+                <p class="trainer-label">STRENGTH COACH</p>
+                <h3>Meera Shah</h3>
+                <p class="trainer-bio">Shoulder strength, safe pressing technique, and upper-body balance.</p>
+                <p class="trainer-price">PKR 1,400 <span>/ session</span></p>
+                <fieldset class="trainer-rating">
+                    <legend>Rate this trainer</legend>
+                    <div class="rating-stars">
+                        <input id="meera-rating-5" type="radio" name="meera-rating" value="5"><label for="meera-rating-5" aria-label="5 stars">★</label>
+                        <input id="meera-rating-4" type="radio" name="meera-rating" value="4"><label for="meera-rating-4" aria-label="4 stars">★</label>
+                        <input id="meera-rating-3" type="radio" name="meera-rating" value="3"><label for="meera-rating-3" aria-label="3 stars">★</label>
+                        <input id="meera-rating-2" type="radio" name="meera-rating" value="2"><label for="meera-rating-2" aria-label="2 stars">★</label>
+                        <input id="meera-rating-1" type="radio" name="meera-rating" value="1"><label for="meera-rating-1" aria-label="1 star">★</label>
+                    </div>
+                    <output class="rating-output" aria-live="polite">Select a rating</output>
+                </fieldset>
+                <a class="trainer-action" href="trainer-enquiry.html?trainer=meera-shah" target="_blank" rel="noopener">Enquire about coaching <span aria-hidden="true">&rarr;</span></a>
+            </div>
+        </article>
+        <article class="trainer-card">
+            <div class="trainer-photo">
+                <img src="workout6.jpg" alt="Athlete demonstrating trunk and core strength">
+                <span class="trainer-specialty">CORE</span>
+            </div>
+            <div class="trainer-info">
+                <p class="trainer-label">FITNESS COACH</p>
+                <h3>Zain Ahmed</h3>
+                <p class="trainer-bio">Core stability, bracing basics, and controlled strength exercises.</p>
+                <p class="trainer-price">PKR 1,300 <span>/ session</span></p>
+                <fieldset class="trainer-rating">
+                    <legend>Rate this trainer</legend>
+                    <div class="rating-stars">
+                        <input id="zain-rating-5" type="radio" name="zain-rating" value="5"><label for="zain-rating-5" aria-label="5 stars">★</label>
+                        <input id="zain-rating-4" type="radio" name="zain-rating" value="4"><label for="zain-rating-4" aria-label="4 stars">★</label>
+                        <input id="zain-rating-3" type="radio" name="zain-rating" value="3"><label for="zain-rating-3" aria-label="3 stars">★</label>
+                        <input id="zain-rating-2" type="radio" name="zain-rating" value="2"><label for="zain-rating-2" aria-label="2 stars">★</label>
+                        <input id="zain-rating-1" type="radio" name="zain-rating" value="1"><label for="zain-rating-1" aria-label="1 star">★</label>
+                    </div>
+                    <output class="rating-output" aria-live="polite">Select a rating</output>
+                </fieldset>
+                <a class="trainer-action" href="trainer-enquiry.html?trainer=zain-ahmed" target="_blank" rel="noopener">Enquire about coaching <span aria-hidden="true">&rarr;</span></a>
+            </div>
+        </article>
+        <article class="trainer-card">
+            <div class="trainer-photo">
+                <img src="WhatsApp Image 2025-06-24 at 11.41.41_a298be75.jpg" alt="Trainer guiding a member through a machine exercise">
+                <span class="trainer-specialty">FULL BODY</span>
+            </div>
+            <div class="trainer-info">
+                <p class="trainer-label">PERSONAL TRAINER</p>
+                <h3>Farhan Ali</h3>
+                <p class="trainer-bio">Full-body strength, machine basics, and coached workout plans.</p>
+                <p class="trainer-price">PKR 1,500 <span>/ session</span></p>
+                <fieldset class="trainer-rating">
+                    <legend>Rate this trainer</legend>
+                    <div class="rating-stars">
+                        <input id="farhan-rating-5" type="radio" name="farhan-rating" value="5"><label for="farhan-rating-5" aria-label="5 stars">★</label>
+                        <input id="farhan-rating-4" type="radio" name="farhan-rating" value="4"><label for="farhan-rating-4" aria-label="4 stars">★</label>
+                        <input id="farhan-rating-3" type="radio" name="farhan-rating" value="3"><label for="farhan-rating-3" aria-label="3 stars">★</label>
+                        <input id="farhan-rating-2" type="radio" name="farhan-rating" value="2"><label for="farhan-rating-2" aria-label="2 stars">★</label>
+                        <input id="farhan-rating-1" type="radio" name="farhan-rating" value="1"><label for="farhan-rating-1" aria-label="1 star">★</label>
+                    </div>
+                    <output class="rating-output" aria-live="polite">Select a rating</output>
+                </fieldset>
+                <a class="trainer-action" href="trainer-enquiry.html?trainer=farhan-ali" target="_blank" rel="noopener">Enquire about coaching <span aria-hidden="true">&rarr;</span></a>
+            </div>
+        </article>
+        <p class="trainer-disclaimer">Coach profiles are illustrative. Prices are estimated per session and should be confirmed with the gym. Ratings are only a local demo and are not saved or published.</p>
+    </div>
+</section>
+
+<!-----------------------------Diet section----------------------------------->
+<section id="diet" class="diet view">
+    <div class="main">
+        <p class="diet-eyebrow">Eat well. Train stronger.</p>
+        <h2><span>S</span>pecial <span>D</span>iet</h2>
+        <h6>Simple food ideas for different gym goals and eating preferences.</h6>
+    </div>
+    <div class="content">
+        <div class="diet-grid">
+            <article class="diet-card">
+                <img src="dite7.jpg" alt="Chicken and balanced foods for a muscle-building meal">
+                <div class="diet-card-body">
+                    <span class="diet-tag">STRENGTH</span>
+                    <h3>Muscle building</h3>
+                    <p class="diet-price">Approx. PKR 450-700 <span>/ meal</span></p>
+                    <p>Build meals around protein-rich foods, filling carbohydrates, vegetables, and healthy fats.</p>
+                    <p class="diet-examples"><strong>Food ideas</strong> Chicken, rice, beans, eggs, yogurt, tofu, or lentils.</p>
+                    <a class="diet-more" href="diet-details.html?plan=muscle-building" target="_blank" rel="noopener">More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </article>
+            <article class="diet-card">
+                <img src="dite5.jpg" alt="Nutritious foods for a balanced fat-loss meal">
+                <div class="diet-card-body">
+                    <span class="diet-tag">LEAN &amp; ACTIVE</span>
+                    <h3>Fat-loss support</h3>
+                    <p class="diet-price">Approx. PKR 350-550 <span>/ meal</span></p>
+                    <p>Choose satisfying portions with vegetables, protein, and high-fibre foods; avoid crash diets.</p>
+                    <p class="diet-examples"><strong>Food ideas</strong> Beans, eggs, lean meats, vegetables, fruit, and whole grains.</p>
+                    <a class="diet-more" href="diet-details.html?plan=fat-loss" target="_blank" rel="noopener">More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </article>
+            <article class="diet-card">
+                <img src="dite6.jpg" alt="A colorful variety of whole foods for balanced nutrition">
+                <div class="diet-card-body">
+                    <span class="diet-tag">EVERYDAY</span>
+                    <h3>Balanced eating</h3>
+                    <p class="diet-price">Approx. PKR 300-500 <span>/ meal</span></p>
+                    <p>A flexible mix of protein, grains or starchy foods, fruits, vegetables, and nourishing fats.</p>
+                    <p class="diet-examples"><strong>Food ideas</strong> Oats, potatoes, rice, vegetables, fruit, dairy, or alternatives.</p>
+                    <a class="diet-more" href="diet-details.html?plan=balanced" target="_blank" rel="noopener">More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </article>
+            <article class="diet-card">
+                <img src="dite2.jpg" alt="Plant foods for a vegetarian gym meal">
+                <div class="diet-card-body">
+                    <span class="diet-tag">NO MEAT</span>
+                    <h3>Vegetarian</h3>
+                    <p class="diet-price">Approx. PKR 250-450 <span>/ meal</span></p>
+                    <p>Include a protein source at meals and choose a varied mix of plant foods and dairy or alternatives.</p>
+                    <p class="diet-examples"><strong>Food ideas</strong> Lentils, chickpeas, paneer, yogurt, eggs, tofu, and nuts.</p>
+                    <a class="diet-more" href="diet-details.html?plan=vegetarian" target="_blank" rel="noopener">More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </article>
+            <article class="diet-card">
+                <img src="dite0.jpg" alt="Fruit, nuts, and plant-based foods for a vegan diet">
+                <div class="diet-card-body">
+                    <span class="diet-tag">PLANT-BASED</span>
+                    <h3>Vegan</h3>
+                    <p class="diet-price">Approx. PKR 250-450 <span>/ meal</span></p>
+                    <p>Combine different plant protein foods and include fortified foods where appropriate.</p>
+                    <p class="diet-examples"><strong>Food ideas</strong> Tofu, soy, beans, lentils, chickpeas, nuts, and seeds.</p>
+                    <a class="diet-more" href="diet-details.html?plan=vegan" target="_blank" rel="noopener">More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </article>
+            <article class="diet-card">
+                <img src="dite3.jpg" alt="Eggs and other protein-rich foods for a gym meal">
+                <div class="diet-card-body">
+                    <span class="diet-tag">PROTEIN</span>
+                    <h3>High-protein choices</h3>
+                    <p class="diet-price">Approx. PKR 450-750 <span>/ meal</span></p>
+                    <p>Spread protein-rich foods through the day using options that suit your preferences and budget.</p>
+                    <p class="diet-examples"><strong>Food ideas</strong> Eggs, dairy, fish, chicken, soy, lentils, and beans.</p>
+                    <a class="diet-more" href="diet-details.html?plan=high-protein" target="_blank" rel="noopener">More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </article>
+            <article class="diet-card">
+                <img src="dite1.jpg" alt="A nourishing meal to enjoy around a workout">
+                <div class="diet-card-body">
+                    <span class="diet-tag">TRAINING FUEL</span>
+                    <h3>Before &amp; after training</h3>
+                    <p class="diet-price">Approx. PKR 200-400 <span>/ meal</span></p>
+                    <p>Have a familiar meal or snack that sits well before exercise, then eat a balanced meal afterwards.</p>
+                    <p class="diet-examples"><strong>Food ideas</strong> Fruit and yogurt before; rice with eggs, beans, or chicken after.</p>
+                    <a class="diet-more" href="diet-details.html?plan=training-fuel" target="_blank" rel="noopener">More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </article>
+            <article class="diet-card">
+                <img src="dite4.jpg" alt="Wholesome foods and fluids to support everyday recovery">
+                <div class="diet-card-body">
+                    <span class="diet-tag">RECOVERY</span>
+                    <h3>Hydration &amp; recovery</h3>
+                    <p class="diet-price">Approx. PKR 250-450 <span>/ meal</span></p>
+                    <p>Drink regularly, especially around exercise, and get enough everyday food and rest to support recovery.</p>
+                    <p class="diet-examples"><strong>Everyday basics</strong> Water, regular meals, fruit, vegetables, and good sleep.</p>
+                    <a class="diet-more" href="diet-details.html?plan=recovery" target="_blank" rel="noopener">More <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </article>
+        </div>
+        <p class="diet-disclaimer">Prices are estimates per meal in PKR and can vary by city, ingredients, and portion size. These are general food ideas, not a personalised meal plan. Speak with a qualified dietitian or healthcare professional for individual advice, allergies, or medical conditions.</p>
+    </div>
+ </section>
+<!----------------------------Contact section------------------------------>
+<section id="contact" class="contact view">
+    <div class="main">
+        <h2><span>G</span>et in Touch</h2>
+        <h6>Have a question about training or membership? Send us a message.</h6>
+    </div>
+    <div class="content contact-layout">
+        <div class="contact-intro">
+            <p class="contact-eyebrow">WE'RE HERE TO HELP</p>
+            <h3>Let's talk about<br><span>your fitness goals.</span></h3>
+            <p class="contact-copy">Tell us what you need and our gym team will be ready to help you find your next step.</p>
+            <div class="contact-prompt">
+                <span class="contact-mark" aria-hidden="true">FA</span>
+                <p><strong>Ready to get started?</strong><br>Register for a membership and start building a routine that works for you.</p>
+            </div>
+            <a class="contact-join" href="registration.html">Explore membership <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <form class="contact-form" id="contact-form">
+            <h3>Send us a message</h3>
+            <p class="contact-form-intro">Complete the form and tell us how we can help.</p>
+            <div class="contact-fields">
+                <div class="contact-field">
+                    <label for="contact-name">Your name</label>
+                    <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="e.g. Alex Smith" required>
+                </div>
+                <div class="contact-field">
+                    <label for="contact-email">Email address</label>
+                    <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                </div>
+                <div class="contact-field contact-field-wide">
+                    <label for="contact-topic">What can we help with?</label>
+                    <select id="contact-topic" name="topic" required>
+                        <option value="" disabled selected>Select a topic</option>
+                        <option value="membership">Membership plans</option>
+                        <option value="training">Training and workouts</option>
+                        <option value="other">Something else</option>
+                    </select>
+                </div>
+                <div class="contact-field contact-field-wide">
+                    <label for="contact-message">Your message</label>
+                    <textarea id="contact-message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+                </div>
+            </div>
+            <button type="submit" class="contact-submit">Send message <span aria-hidden="true">&rarr;</span></button>
+            <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
+            <p class="contact-note">Demo form: your message is not sent or saved.</p>
+        </form>
+    </div>
+</section>
+<!---------------------------------copyright------------------------->
+<footer>       
+        <div class="panel1">
+           <h1>F.<span>A.</span></h1>
+        </div>
+        <div class="panel2">
+            <ul>
+                <p>Get to Know Us</p>
+            <h3><a href="#home">Home</a></h3>
+                <a>Careers</p>
+                <a>Press Releases</a>
+                <a>Amazon Science</a>
+                <a>Amazon Device</a>
+                <a>Blog</a>
+            </ul>
+
+            <ul>
+                <p>Get to Know Us</p>
+               <h3><a href="#about">About</a></h3>
+                <a>Careers</a>
+                <a>Press Releases</a>
+                <a>Amazon Science</a>
+                <a>Amazon Device</a>
+                <a>Blog</a>
+            </ul>
+
+            <ul>
+                <p>Get to Know Us</p>
+              <h3><a href="#diet">Diet</a></h3>
+                <a href="#">Acc service</a>
+                <a href="#">Food service</a>
+                <a href="#">Swingpul</a>
+                <a href="#">Free Wifi service</a>
+                <a href="#">All type service</a>
+            </ul>
+
+            <ul>
+                <p>Get to Know Us</p>
+               <h3><a href="#contact">Contact</a></h3>
+                <a href="#">Atm card service</a>
+                <a href="#">Patyam service</a>
+                <a href="#">Case payment service</a>
+                <a href="#">Google pay service</a>
+                <a href="#">Phone pay service</a>
+                <a href="#">All type service</a>
+            </ul>
+
+            <ul>
+                <p>Get to Know Us</p>
+                <h3><a href="registration.html">Registration</a></h3>
+                <a href="#">Onile</a>
+                <a href="#">Offline </a>
+                <a>Amazon Science</a>
+                <a href="#">Wifi Free Device</a>
+                <a>Blog</a>
+            </ul>
+        </div>
+           
+        <div class="pane3">
+            <div class="pages">
+                <a>Conditions of Use</a>
+                <a>Privacy Notice</a>
+                <a>Your Ads Privacy Choices</a>
+            </div>
+
+            <div class="copyright">
+                Â© 1999-2025,FA.com, Inc. or its affiliate*
+            </div>
+        </div>
+    </footer>
+    
+    
+
+<script src="scripts.js"></script>
+</body>
+</html>
