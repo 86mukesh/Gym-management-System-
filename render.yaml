@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: fa-gym-management
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_SSL
+        value: "true"
+      - key: ADMIN_USER
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
